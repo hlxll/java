@@ -1,5 +1,14 @@
 package com.login;
 
+//import引入其他包的类，可以直接使用
+import com.main.index;
+
+//final定义的类，是最终类，不能被继承,变量定义final不能被修改,方法被final修饰，不能重写
+//final修饰引用类型，引用类型的地址值不能变，但是内容可以变
+
+//静态成员方法，只能访问静态的变量和方法
+
+
 // 继承提高了代码复用性，提高了代码的维护性
 // 让类与类之间产生了关系，耦合性增强，削弱了子类的独立性
 // 子类的构造方法默认会访问父类的无参构造方法，
@@ -20,6 +29,7 @@ public class Student extends BasePeople {
         return super.GetName();
     }
 
+    @Override
     public String GetAddress(){
         int age = 30;
         System.out.println(age);
