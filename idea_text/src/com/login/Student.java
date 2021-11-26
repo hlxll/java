@@ -3,6 +3,8 @@ package com.login;
 //import引入其他包的类，可以直接使用
 import com.main.index;
 
+import java.util.Objects;
+
 //final定义的类，是最终类，不能被继承,变量定义final不能被修改,方法被final修饰，不能重写
 //final修饰引用类型，引用类型的地址值不能变，但是内容可以变
 
@@ -27,6 +29,19 @@ public class Student extends BasePeople {
     @Override
     public String GetName() {
         return super.GetName();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+//        this -- s
+//        o ---- s2
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        //向下转型
+        Student student = (Student) o;//student等于s2
+        return age == student.age &&
+                Objects.equals(address, student.address);
     }
 
     @Override

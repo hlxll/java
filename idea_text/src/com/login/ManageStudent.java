@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class ManageStudent {
+    private String outName = "外部类";
     public static void main(String[] args) {
 
 
@@ -31,10 +32,22 @@ public class ManageStudent {
         ao.useDuotai(a);
         //好处和弊端,提高程序扩展性，不能使用子类特有方法
 
-        //多态向下转型，解决多台弊端
+        //使用匿名类实现该多态,不用创建SetPeople类
+        ao.useDuotai(new BasePeople() {
+            @Override
+            public String GetAddress() {
+                return null;
+            }
+        });
+
+        //多态向下转型，解决多态弊端
         Student c = (Student)a;
         c.GetAddress();
 
+
+        //接口名做参数
+        BasePeople tea = new Student();
+        ao.useDuotai(tea);
 
 
     }
@@ -54,4 +67,33 @@ public class ManageStudent {
             System.out.println(obj.GetName()+"--"+obj.GetPassword());
         }
     }
+
+//    成员内部类
+    public class InnerStudent {
+        public void show() {
+            System.out.println(outName);
+        }
+    }
+    public void showInner() {
+        //内部类和外部类
+        InnerStudent inner = new InnerStudent();
+        inner.show();
+
+
+
+        //局部内部类
+        class BuInner {
+            public void showBu(){
+
+            }
+        }
+
+        //匿名内部类
+        People i = new Student() {
+
+            @Override
+            public void GetPeopleName() {}
+        };
+    }
+
 }
