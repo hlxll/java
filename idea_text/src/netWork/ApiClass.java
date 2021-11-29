@@ -41,13 +41,6 @@ public class ApiClass {
         Arrays.sort(arr);
         System.out.println(Arrays.toString(arr));
 
-
-
-
-        Date();
-
-
-
         System.out.println("终止Java虚拟机");
         //终止当前运行的java虚拟机，非0表示异常终止
         System.exit(0);
@@ -76,11 +69,22 @@ public class ApiClass {
         SimpleDateFormat date3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         //d2的格式和SimpleDateFormat的参数格式需要一样
         Date dd2 = date3.parse(d2);
-        System.out.println(dd2);
 
 
+        //calender可以在某时间提供与日历字段转换,calender是抽象类，不能直接实例化
+        Calendar c = Calendar.getInstance();//多态的形式
+        int year = c.get(Calendar.YEAR);
+        //calendar的三个常用方法:get返回给定日历字段的值，
+
+        c.add(Calendar.YEAR, -3);
+        int year1 = c.get(Calendar.YEAR);
+        System.out.println(year1);
+        // add:对日历字段进行添加时间
+
+        c.set(2048, 11, 11);
+        //set对当前时间进行修改
 
     }
 
-//10_calendar
+
 }
