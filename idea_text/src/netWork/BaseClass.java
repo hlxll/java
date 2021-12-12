@@ -1,5 +1,8 @@
 package netWork;
 
+import java.util.ArrayList;
+import java.util.Set;
+
 //基本类型包装类
 public class BaseClass {
 //    public static final int MI
@@ -15,6 +18,7 @@ public class BaseClass {
         i1 += 200;
 
         typeChange();
+        changeParam(1,2,3);
     }
 
     public static void typeChange() {
@@ -22,6 +26,13 @@ public class BaseClass {
         String[] arr = sArr.split(" ");
         for(int i=0;i<arr.length;i++) {
             System.out.println(arr[i]);
+        }
+    }
+
+    //可变参数，a是所有参数的数组
+    public static void changeParam(int... a) {
+        for (int i: a){
+            System.out.println(i);
         }
     }
 }

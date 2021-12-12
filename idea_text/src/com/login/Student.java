@@ -3,6 +3,7 @@ package com.login;
 //import引入其他包的类，可以直接使用
 import com.main.index;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 //final定义的类，是最终类，不能被继承,变量定义final不能被修改,方法被final修饰，不能重写
@@ -15,9 +16,16 @@ import java.util.Objects;
 // 让类与类之间产生了关系，耦合性增强，削弱了子类的独立性
 // 子类的构造方法默认会访问父类的无参构造方法，
 // 只能继承一个类，支持多层继承
-public class Student extends BasePeople {
-    public int age = 20;
+public class Student extends BasePeople implements Serializable {
+    private static final long serialVersionUID = 42L;
+    public transient int age = 20;
     private String address;
+    public Student() { };
+    public Student(String name, String pass) {
+        super.SetName(name);
+        super.SetPass(pass);
+    }
+
     public void SetName(String name, String pass){
         //super是调用父类，super是子类保存父类的空间
         super.SetName(name);
